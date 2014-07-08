@@ -1,0 +1,20 @@
+{
+    "name": "akhristenko/doctrine-stacktrace-bundle",
+    "type": "symfony-bundle",
+    "description": "Add stacktrace to doctrine profile page",
+    "keywords": ["doctrine", "profile", "stacktrace"],
+    "homepage": "https://github.com/Akhristenko/doctrine-stacktrace-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aleksandr Khristenko",
+            "email": "Akhristenko@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+    },
+    "autoload": {
+	"psr-0": { "Akhristenko\\Bundle\\DoctrineStacktraceBundle": "src/" }
+    }
+}
