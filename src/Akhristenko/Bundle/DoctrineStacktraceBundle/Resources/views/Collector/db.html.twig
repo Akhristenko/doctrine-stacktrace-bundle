@@ -118,7 +118,7 @@
                             </span>
                             {%  if query.stacktrace is defined %}
                             <span id="stacktrace-query-{{ i }}-{{ loop.parent.loop.index }}" style="display:none">
-                                {{ query.stacktrace|nl2br }}
+                                {{ doctrine_backtrace_view(query.stacktraceArray) }}
                             </span>
                             {% endif %}
                             <small>

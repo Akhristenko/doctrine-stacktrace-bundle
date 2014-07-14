@@ -13,8 +13,14 @@ class DebugStack extends \Doctrine\DBAL\Logging\DebugStack
         if ($this->enabled) {
             $e = new \Exception();
             $this->start = microtime(true);
-            $tracebackString = $e->getTraceAsString();
-            $this->queries[++$this->currentQuery] = array('sql' => $sql, 'params' => $params, 'types' => $types, 'executionMS' => 0, 'stacktrace' => $tracebackString);
+            $tracebackArray = $this->prepareBacktraceData();
+            $this->queries[++$this->currentQuery] = ['sql' => $sql, 'params' => $params, 'types' => $types, 'executionMS' => 0, 'stacktraceArray' => $tracebackArray];
         }
+    }
+
+    protected function prepareBacktraceData()
+    {
+        $backtraceData = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        return $backtraceData;
     }
 }

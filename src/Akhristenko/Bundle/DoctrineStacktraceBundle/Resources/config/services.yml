@@ -1,3 +1,10 @@
 parameters:
-
+  akhristenko_doctrine_stacktrace.excludes: []
 services:
+  akhristenko_doctrine_stacktrace.twig.backtrace_extension:
+    class: Akhristenko\Bundle\DoctrineStacktraceBundle\Twig\BacktraceExtension
+    arguments: [%kernel.root_dir%]
+    calls:
+      - [setExcludes, [%akhristenko_doctrine_stacktrace.excludes%]]
+    tags:
+      - { name: twig.extension }

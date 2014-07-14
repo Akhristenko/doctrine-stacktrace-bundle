@@ -24,6 +24,11 @@ class AkhristenkoDoctrineStacktraceExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        if (isset($config['excludes'])) {
+            $container->setParameter('akhristenko_doctrine_stacktrace.excludes', $config['excludes']);
+        }
+
     }
 
 
