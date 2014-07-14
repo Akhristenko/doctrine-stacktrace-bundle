@@ -116,7 +116,7 @@
                             <span id="original-query-{{ i }}-{{ loop.parent.loop.index }}" style="display: none;">
                                 {{ query.sql|doctrine_replace_query_parameters(query.params)|raw }}
                             </span>
-                            {%  if query.stacktrace is defined %}
+                            {%  if query.stacktraceArray is defined %}
                             <span id="stacktrace-query-{{ i }}-{{ loop.parent.loop.index }}" style="display:none">
                                 {{ doctrine_backtrace_view(query.stacktraceArray) }}
                             </span>
@@ -124,7 +124,7 @@
                             <small>
                                 <strong>Parameters</strong>: {{ query.params|yaml_encode }} <br />
                                 [<span id="expandParams-{{ i }}-{{ loop.parent.loop.index }}" onclick="javascript:toggleRunnableQuery(this);" target-data-id="original-query-{{ i }}-{{ loop.parent.loop.index }}" style="cursor: pointer;">Display runnable query</span>]<br/>
-                                {% if query.stacktrace is defined %}
+                                {% if query.stacktraceArray is defined %}
                                 [<span id="expandStacktrace-{{ i }}-{{ loop.parent.loop.index }}" onclick="javascript:toggleStacktrace(this);" target-data-id="stacktrace-query-{{ i }}-{{ loop.parent.loop.index }}" style="cursor: pointer;">Display stacktrace</span>]<br/>
                                 {% endif %}
                             </small>
